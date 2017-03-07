@@ -13,10 +13,222 @@ h1, h2, h3 {
     font-weight: 700;
 }
 
+.botao {
+    color: #f1f1f1;
+    text-decoration: none;
+    padding: 10px 30px;
+    background-color: #4d4d4d;
+    font-size: .8em;
+    border-radius: 10px;
+}
+
 /*
 NAVEGAÇÃO
 */
 
 nav {
-    display: -webkit-box; display: -ms-flexbox; display: flex;
+    display: -webkit-box; 
+    display: -ms-flexbox; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #4d4d4d;
+   
 }
+
+nav > a {
+    text-decoration: none;
+    color: #f1f1f1;
+    font-weight: 700;
+    font-size: 2em;
+    font-family: 'Press Start 2P', sans-serif;
+}
+
+nav  ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+nav ul li {
+    text-align: center;
+    width: 100%;
+}
+
+nav ul li a {
+    display: inline-block;
+    padding: 10px 0;
+    width: 100%;
+    text-decoration: none;
+    color: #f1f1f1;
+    
+}
+
+/*
+Cabeçalho
+*/
+
+header {
+    background-image: url(../img/fundo.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat:no-repeat;
+    color: #f1f1f1;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    height: 40vh;
+    justify-content: center;
+    
+    
+}
+
+header p {
+    margin-bottom: 2em;
+}
+
+#sobre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px 20px;
+    background-color: #4d4d4d;
+    color: #f1f1f1;
+}
+
+#sobre p {
+    margin-bottom: 2.5em;
+    max-width: 1000px;
+}
+
+#sobre .botao {
+    background-color: #f1f1f1;
+    color: #4d4d4d
+}
+
+/*
+Serviços
+*/
+
+#servicos {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    
+}
+
+#servicos div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 30px;
+}
+
+/*
+Portfólio
+*/
+
+#portfolio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    
+}
+
+#portfolio h2{
+   margin-bottom: 20px;
+    
+}
+
+#portfolio img {
+    width: 100%;
+    
+}
+
+/*
+Contato
+*/
+
+#contato {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #4d4d4d;
+    color: #f1f1f1;
+}
+
+/*
+Media Queries
+*/
+
+@media screen and (min-width: 700px) {
+    /*
+    Navegação
+    */
+    
+    nav {
+    flex-direction: row;
+        justify-content: space-around;
+    }
+    nav ul {
+        flex-direction: row;
+       width: 70%;
+    }
+    
+    /*
+    Cabeçalho
+    */
+    
+    header {
+        height: 600px;
+        height: 60vh;
+    
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
