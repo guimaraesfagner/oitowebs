@@ -1,86 +1,297 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <title>Oitowebs .:: Soluções em tecnologia</title>
-   <link href="https://fonts.googleapis.com/css?family=POpen+Sans|Roboto+Slab|Press+Start+2P" rel="stylesheet">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/estilos.css" 
-  </head>
-  <body>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Oitowebs • Soluções em Tecnologia</title>
+  <meta name="description" content="Soluções completas em tecnologia: desenvolvimento de sites, manutenção, QA e muito mais. Atendimento personalizado e sites responsivos.">
+  
+  <!-- Fontes Modernas -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Estilos -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- Font Awesome (ícones) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
 
-    <nav>
-      <a href="#">Oitowebs</a>
-      <ul>
-        <li><a href="#sobre">SOBRE</a></li>
-        <li><a href="#servicos">SERVIÇOS</a></li>
-        <li><a href="#portfolio">PORTFÓLIO</a></li>
-        <li><a href="#contato">CONTATO</a></li>
-    </nav>
-      <header>
-        <h1</h1>
-        <p>Soluções em tecnologia para você e seu negócio.</p>
-        <a href="#" class="botao">VER MAIS</a>
-      </header>
+  <!-- Botão Menu Mobile (hambúrguer) -->
+  <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 
-      <section id="sobre">
-        <h2>SOBRE MIM</h2>
-        <p>Meu nome é Fagner Guimarães, tenho 28 anos, formado em analise e desenvolvimento de sistemas, atuo no Rio de Janeiro como Webdesigner autonomo.</p>
-        <a href="#contato" class="botao">ENTRE EM CONTATO</a>
-      </section>
+  <!-- Navegação -->
+  <nav class="nav" id="navMenu">
+    <div class="nav-container">
+      <a href="/" class="logo">
+        <span class="logo-icon">&lt;/&gt;</span>
+        Oitowebs
+      </a>
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-link">INÍCIO</a></li>
+        <li><a href="#sobre" class="nav-link">SOBRE</a></li>
+        <li><a href="#servicos" class="nav-link">SERVIÇOS</a></li>
+        <li><a href="#portfolio" class="nav-link">PORTFÓLIO</a></li>
+        <li><a href="#contato" class="nav-link">CONTATO</a></li>
+      </ul>
+      <div class="nav-social">
+        <a href="https://github.com/guimaraesfagner" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/fagner-guimar%C3%A3es-498a0855/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://www.instagram.com/guimaraesfagner" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
 
-      <section id="servicos">
-        <h2>SERVIÇOS</h2>
-        <div>
-          <img src="img/configs.png" alt="Desenvolvimento">
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">Full-Stack Web Developer</div>
+      <h1 class="hero-title">Soluções em <span class="highlight">tecnologia</span> para você e seu negócio.</h1>
+      <p class="hero-subtitle">Crio sites modernos, responsivos e otimizados que transformam visitantes em clientes.</p>
+      <div class="hero-buttons">
+        <a href="#portfolio" class="btn btn-primary">VER PORTFÓLIO <i class="fas fa-arrow-right"></i></a>
+        <a href="#contato" class="btn btn-outline">ENTRE EM CONTATO <i class="fas fa-comment"></i></a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Role para explorar</span>
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- Seção Sobre -->
+  <section id="sobre" class="section sobre parallax-light">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Quem sou eu</span>
+        <h2>Sobre <span class="highlight">Mim</span></h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="sobre-content">
+        <div class="sobre-text">
+          <p>Meu nome é <strong>Fagner Guimarães</strong>, tenho <span id="idade"></span> anos, formado em Análise e Desenvolvimento de Sistemas, atuo no Rio de Janeiro como Webdesigner autônomo há <span id="experiencia"></span> anos.</p>
+          <p>Minha missão é ajudar pequenas e médias empresas a terem uma presença digital forte, com sites que combinam design atraente, performance e facilidade de uso. Cada projeto é único e desenvolvido sob medida para atender às necessidades específicas de cada cliente.</p>
+          <div class="sobre-stats">
+            <div class="stat">
+              <span class="stat-number" id="anosExperiencia"></span>
+              <span class="stat-label">Anos de experiência</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number" style="font-size: 1.8rem;">Projetos</span>
+              <span class="stat-label">entregues no prazo</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Clientes satisfeitos</span>
+            </div>
+          </div>
+          <div class="sobre-btn">
+            <a href="#contato" class="btn btn-primary">Vamos conversar? <i class="fas fa-paper-plane"></i></a>
+          </div>
+        </div>
+        <div class="sobre-image">
+          <div class="image-placeholder">
+            <i class="fas fa-code"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Serviços -->
+  <section id="servicos" class="section servicos">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">O que eu faço</span>
+        <h2>Meus <span class="highlight">Serviços</span></h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="servicos-grid">
+        <div class="servico-card">
+          <div class="card-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
           <h3>Desenvolvimento de sites</h3>
-          <p>Foco em novos empreendedores, pequenas e medias empresas</p>
+          <p>Sites profissionais, modernos e otimizados para empresas, empreendedores e profissionais autônomos.</p>
         </div>
-        <div>
-          <img src="img/host.png" alt="Manutenção">
+        <div class="servico-card">
+          <div class="card-icon">
+            <i class="fas fa-charging-station"></i>
+          </div>
           <h3>Manutenção de sites</h3>
-          <p>Atualizações constantes e medidas preventivas para manter seu site seguro e sempre com novidades, atraindo novos visitantes</p>
+          <p>Atualizações constantes, segurança e melhorias contínuas para manter seu site sempre no ar e atualizado.</p>
         </div>
-        <div>
-          <img src="img/site.png" alt="Blogs">
+        <div class="servico-card">
+          <div class="card-icon">
+            <i class="fas fa-blog"></i>
+          </div>
           <h3>Criação de blogs</h3>
-          <p>Sua empresa na web. Solução barata para divulgação do seu serviço.</p>
+          <p>Solução barata e eficiente para divulgar seu negócio e se conectar com seu público através de conteúdo relevante.</p>
         </div>
-        <div>
-          <img src="img/site.png" alt="Mobile">
+        <div class="servico-card">
+          <div class="card-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
           <h3>Sites responsivos</h3>
-          <p>Arquitetura de sites funcionais em qualquer dispositivo, como: tablets, smartphones, dentre outros.</p>
+          <p>Layouts que se adaptam perfeitamente a qualquer dispositivo: desktop, tablet ou smartphone.</p>
         </div>
-        <div>
-          <img src="img/coracao.png" alt="Otimização">
-          <h3>Otimização</h3>
-          <p>Sites produzidos com boas praticas de programação em sua estrutura; amigaveis aos melhores buscadores da internet.</p>
+        <div class="servico-card">
+          <div class="card-icon">
+            <i class="fas fa-check-double"></i>
+          </div>
+          <h3>QA & Testes</h3>
+          <p>Garantia de qualidade com testes rigorosos, validação de usabilidade e performance para entregar um produto impecável.</p>
         </div>
-      </section>
+        <div class="servico-card">
+          <div class="card-icon">
+            <i class="fas fa-palette"></i>
+          </div>
+          <h3>UI/UX Design</h3>
+          <p>Design centrado no usuário para proporcionar a melhor experiência possível para seus clientes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <section id="portfolio">
-        <h2>Portifólio</h2>
-          <img src="img/portfolio-1.jpg" alt="">
-          <img src="img/portfolio-2.jpeg" alt="">
-          <img src="img/portfolio-3.jpeg" alt="">
-          <img src="img/portfolio-4.jpeg" alt="">
-          <img src="img/portfolio-5.jpeg" alt="">
-          <img src="img/portfolio-6.jpeg" alt="">
-        
-      </section>
+  <!-- Seção Portfólio -->
+  <section id="portfolio" class="section portfolio">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Trabalhos recentes</span>
+        <h2>Meu <span class="highlight">Portfólio</span></h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <img src="img/portfolio-1.jpg" alt="Projeto 1 - Site institucional">
+          <div class="portfolio-overlay">
+            <h4>Projeto Alpha</h4>
+            <p>Site institucional</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="img/portfolio-2.jpeg" alt="Projeto 2 - E-commerce">
+          <div class="portfolio-overlay">
+            <h4>Projeto Beta</h4>
+            <p>E-commerce</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="img/portfolio-3.jpeg" alt="Projeto 3 - Landing page">
+          <div class="portfolio-overlay">
+            <h4>Projeto Gamma</h4>
+            <p>Landing page</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="img/portfolio-4.jpg" alt="Projeto 4 - Blog">
+          <div class="portfolio-overlay">
+            <h4>Projeto Delta</h4>
+            <p>Blog corporativo</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="img/portfolio-5.jpeg" alt="Projeto 5 - Dashboard">
+          <div class="portfolio-overlay">
+            <h4>Projeto Epsilon</h4>
+            <p>Dashboard interativo</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="img/portfolio-6.jpeg" alt="Projeto 6 - App">
+          <div class="portfolio-overlay">
+            <h4>Projeto Zeta</h4>
+            <p>Aplicação web</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <section id="contato">
-        <h2>Contato</h2>
-        <p>Entre em contato conosco.</p>
-        <div>
-          <img src="img/fone.png" alt="Telefone">
-          <p><a href="tel:21995862846"> (21) 995862846</a></p>
+  <!-- Seção Contato -->
+  <section id="contato" class="section contato parallax-light">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Vamos trabalhar juntos?</span>
+        <h2>Entre em <span class="highlight">Contato</span></h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="contato-content">
+        <div class="contato-info">
+          <div class="contato-card">
+            <div class="contato-icon">
+              <i class="fab fa-whatsapp"></i>
+            </div>
+            <h3>WhatsApp</h3>
+            <p>Resposta rápida e atendimento personalizado</p>
+            <a href="https://wa.link/1o8kha" class="contato-link" target="_blank" rel="noopener noreferrer">
+              (21) 98160-8264 <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+          <div class="contato-card">
+            <div class="contato-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <h3>Email</h3>
+            <p>Envie sua mensagem e retorno em até 24h</p>
+            <a href="mailto:fagner.guimaraes@gmail.com" class="contato-link">
+              fagner.guimaraes@gmail.com <i class="fas fa-envelope"></i>
+            </a>
+          </div>
         </div>
-        <div>
-          <img src="img/contato.png" alt="email">
-          <p><a href="malito:fagner.guimaraes@hotmail.com">fagner.guimaraes@hotmail.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="/" class="logo">
+            <span class="logo-icon">&lt;/&gt;</span>
+            Oitowebs
+          </a>
+          <p>Soluções em tecnologia para você e seu negócio.</p>
+          <div class="footer-social">
+            <a href="https://github.com/guimaraesfagner" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/fagner-guimar%C3%A3es-498a0855/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/guimaraesfagner" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
         </div>
-      </section>
-      <footer>
-        <p>Desenvolvido por Fagner Guimarães.</p></footer>
-  </body>
+        <div class="footer-links">
+          <h4>Links Rápidos</h4>
+          <ul>
+            <li><a href="#home">Início</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#portfolio">Portfólio</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Desenvolvido por <strong>Fagner Guimarães</strong> · Todos os direitos reservados © 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botão Voltar ao Topo (moderno) -->
+  <button id="btnTopo" class="btn-topo" title="Voltar ao topo">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="js/script.js"></script>
+</body>
 </html>
