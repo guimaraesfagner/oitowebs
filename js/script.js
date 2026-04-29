@@ -21,19 +21,22 @@ function calcularAnosExperiencia(dataInicio) {
     return anos;
 }
 
-// Atualizar elementos HTML
+// Atualizar elementos
 const idadeSpan = document.getElementById('idade');
 const experienciaSpan = document.getElementById('experiencia');
 const anosExperienciaSpan = document.getElementById('anosExperiencia');
+
+const anosExp = calcularAnosExperiencia('2017-01-02');
 
 if (idadeSpan) {
     idadeSpan.textContent = calcularIdade('1988-07-05');
 }
 if (experienciaSpan) {
-    experienciaSpan.textContent = calcularAnosExperiencia('2017-01-02');
+    experienciaSpan.textContent = anosExp;
 }
 if (anosExperienciaSpan) {
-    anosExperienciaSpan.textContent = calcularAnosExperiencia('2017-01-02');
+    // Adiciona o sinal de "+" antes do número
+    anosExperienciaSpan.textContent = `+${anosExp}`;
 }
 
 // ===== MENU MOBILE =====
@@ -49,7 +52,6 @@ if (menuToggle) {
     });
 }
 
-// Fechar menu ao clicar em um link
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
         if (menuToggle) menuToggle.classList.remove('active');
@@ -60,7 +62,6 @@ navLinks.forEach(link => {
 
 // ===== ATIVAR LINK ATIVO NA NAVEGAÇÃO =====
 const sections = document.querySelectorAll('section[id]');
-
 const observerOptions = {
     threshold: 0.3,
     rootMargin: '0px 0px -30% 0px'
