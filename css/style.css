@@ -273,7 +273,6 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
 }
 
-/* Efeito parallax no fundo do hero */
 .hero::before {
   content: '';
   position: absolute;
@@ -290,7 +289,6 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 0;
 }
 
-/* Gradiente sobreposto ao fundo parallax */
 .hero::after {
   content: '';
   position: absolute;
@@ -379,7 +377,9 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
 }
 
+/* Justificar os parágrafos da div sobre-text */
 .sobre-text p {
+  text-align: justify;
   margin-bottom: 1.5rem;
   color: var(--gray);
 }
@@ -409,12 +409,17 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--gray);
 }
 
+/* Centralizar conteúdo da div .sobre-image vertical e horizontalmente */
 .sobre-image {
   background: linear-gradient(135deg, var(--primary-light), var(--primary));
   border-radius: 1.5rem;
   padding: 3rem;
   text-align: center;
   box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px; /* para garantir altura mínima e centralização vertical */
 }
 
 .image-placeholder i {
@@ -423,7 +428,6 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0.9;
 }
 
-/* Centralização do botão na seção Sobre */
 .sobre-btn {
   text-align: center;
 }
@@ -799,6 +803,12 @@ footer {
   .sobre-content {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+  
+  /* Na versão mobile, a imagem fica abaixo do texto e o flex align-items não causa problema */
+  .sobre-image {
+    min-height: auto;
+    padding: 3rem;
   }
   
   .sobre-stats {
