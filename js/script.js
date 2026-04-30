@@ -1,141 +1,92 @@
 // ===== DADOS DINÂMICOS =====
 function calcularIdade(dataNascimento) {
-    const hoje = new Date();
-    const nascimento = new Date(dataNascimento);
-    let idade = hoje.getFullYear() - nascimento.getFullYear();
-    const mes = hoje.getMonth() - nascimento.getMonth();
-    if (mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())) {
-        idade--;
-    }
-    return idade;
+  const hoje = new Date();
+  const nascimento = new Date(dataNascimento);
+  let idade = hoje.getFullYear() - nascimento.getFullYear();
+  const mes = hoje.getMonth() - nascimento.getMonth();
+  if (mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())) idade--;
+  return idade;
 }
 
 function calcularAnosExperiencia(dataInicio) {
-    const hoje = new Date();
-    const inicio = new Date(dataInicio);
-    let anos = hoje.getFullYear() - inicio.getFullYear();
-    const mes = hoje.getMonth() - inicio.getMonth();
-    if (mes < 0 || (mes === 0 && hoje.getDate() < inicio.getDate())) {
-        anos--;
-    }
-    return anos;
+  const hoje = new Date();
+  const inicio = new Date(dataInicio);
+  let anos = hoje.getFullYear() - inicio.getFullYear();
+  const mes = hoje.getMonth() - inicio.getMonth();
+  if (mes < 0 || (mes === 0 && hoje.getDate() < inicio.getDate())) anos--;
+  return anos;
 }
-
-// Atualizar elementos
-const idadeSpan = document.getElementById('idade');
-const experienciaSpan = document.getElementById('experiencia');
-const anosExperienciaSpan = document.getElementById('anosExperiencia');
 
 const anosExp = calcularAnosExperiencia('2017-01-02');
-
-if (idadeSpan) {
-    idadeSpan.textContent = calcularIdade('1988-07-05');
-}
-if (experienciaSpan) {
-    experienciaSpan.textContent = anosExp;
-}
-if (anosExperienciaSpan) {
-    // Adiciona o sinal de "+" antes do número
-    anosExperienciaSpan.textContent = `+${anosExp}`;
-}
+document.getElementById('idade').textContent = calcularIdade('1988-07-05');
+document.getElementById('experiencia').textContent = anosExp;
+document.getElementById('anosExperiencia').textContent = `+${anosExp}`;
 
 // ===== MENU MOBILE =====
 const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.getElementById('navMenu');
 const navLinks = document.querySelectorAll('.nav-link');
 
-if (menuToggle) {
-    menuToggle.addEventListener('click', () => {
-        menuToggle.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
-    });
-}
+menuToggle.addEventListener('click', () => {
+  menuToggle.classList.toggle('active');
+  navMenu.classList.toggle('active');
+  document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+});
 
 navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        if (menuToggle) menuToggle.classList.remove('active');
-        if (navMenu) navMenu.classList.remove('active');
-        document.body.style.overflow = '';
-    });
+  link.addEventListener('click', () => {
+    menuToggle.classList.remove('active');
+    navMenu.classList.remove('active');
+    document.body.style.overflow = '';
+  });
 });
 
-// ===== ATIVAR LINK ATIVO NA NAVEGAÇÃO =====
+// ===== SCROLL ACTIVE LINK =====
 const sections = document.querySelectorAll('section[id]');
-const observerOptions = {
-    threshold: 0.3,
-    rootMargin: '0px 0px -30% 0px'
-};
-
 const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const activeId = entry.target.getAttribute('id');
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${activeId}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-    });
-}, observerOptions);
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const activeId = entry.target.getAttribute('id');
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${activeId}`) link.classList.add('active');
+      });
+    }
+  });
+}, { threshold: 0.3, rootMargin: '0px 0px -30% 0px' });
 
-sections.forEach(section => {
-    observer.observe(section);
-});
+sections.forEach(section => observer.observe(section));
 
-// ===== BOTÃO VOLTAR AO TOPO =====
+// ===== BOTÃO TOPO =====
 const btnTopo = document.getElementById('btnTopo');
-
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-        btnTopo.classList.add('aparecer');
-    } else {
-        btnTopo.classList.remove('aparecer');
-    }
+  if (window.scrollY > 300) btnTopo.classList.add('aparecer');
+  else btnTopo.classList.remove('aparecer');
 });
+btnTopo.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-function voltarAoTopo() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-}
-
-if (btnTopo) {
-    btnTopo.addEventListener('click', voltarAoTopo);
-}
-
-// ===== NAVEGAÇÃO COM FUNDO AO ROLAR =====
+// ===== NAV BG SCROLL =====
 const nav = document.querySelector('.nav');
-
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        nav.style.background = 'rgba(255, 255, 255, 0.98)';
-        nav.style.boxShadow = '0 4px 6px -1px rgba(0,0,0,0.1)';
-    } else {
-        nav.style.background = 'rgba(255, 255, 255, 0.95)';
-        nav.style.boxShadow = '0 1px 3px rgba(0,0,0,0.12)';
-    }
+  if (window.scrollY > 50) nav.style.background = 'rgba(10,15,26,0.98)';
+  else nav.style.background = 'rgba(10,15,26,0.95)';
 });
 
-// ===== ANIMAÇÕES SUCESSIVAS (FADE-IN) =====
+// ===== FADE-IN ANIMATION =====
 const fadeElements = document.querySelectorAll('.servico-card, .portfolio-item, .contato-card, .sobre-content');
-
 const fadeObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-            fadeObserver.unobserve(entry.target);
-        }
-    });
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+      fadeObserver.unobserve(entry.target);
+    }
+  });
 }, { threshold: 0.1 });
 
 fadeElements.forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'all 0.6s ease';
-    fadeObserver.observe(el);
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'all 0.6s ease';
+  fadeObserver.observe(el);
 });
